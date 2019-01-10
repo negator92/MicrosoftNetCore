@@ -1,3 +1,5 @@
+using System.Text.Encodings.Web;
+
 namespace MvcMovie.Controllers
 {
     public class HelloWorldController : Controller
@@ -5,7 +7,7 @@ namespace MvcMovie.Controllers
         public string Index()
             => "This is my default action";
 
-        public string Welcome()
-            => "This is the Welcome action method";
+        public string Welcome(string name, int numTimes = 1)
+            => HtmlEncoder.Default.Encode($"Hello {name}, NumTimes is: {numTimes}");
     }
 }
